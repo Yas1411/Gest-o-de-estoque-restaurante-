@@ -1,0 +1,23 @@
+# Ambiente virtual e caches do Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Variáveis de ambiente e credenciais
+.env
+secrets.h
+
+# Bancos locais
+db.sqlite3
+*.sqlite3
+restaurante_db
+
+# Arquivos coletados pelo collectstatic (gerados no deploy)
+staticfiles/
+
+# Editores / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,49 @@
+<style>
+    .campo-senha { position: relative; }
+    .campo-senha input { padding-right: 100px; }
+    .campo-senha .btn-olho {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 34px;
+        min-width: 84px;
+        padding: 0 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fonte-label);
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: 2px solid var(--vermelho-fundo);
+        border-radius: 4px;
+        background-color: var(--vermelho-fundo);
+        color: #fff;
+    }
+    .campo-senha .btn-olho:hover { background-color: var(--vermelho-hover); border-color: var(--vermelho-hover); }
+</style>
+<script>
+    // Adiciona o botão "Mostrar/Ocultar" em todo campo de senha da página.
+    document.querySelectorAll('input[type="password"]').forEach(function (input) {
+        var wrap = document.createElement('div');
+        wrap.className = 'campo-senha';
+        input.parentNode.insertBefore(wrap, input);
+        wrap.appendChild(input);
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn-olho';
+        btn.textContent = 'Mostrar';
+        btn.setAttribute('aria-label', 'Mostrar senha');
+        btn.addEventListener('click', function () {
+            var oculto = input.type === 'password';
+            input.type = oculto ? 'text' : 'password';
+            btn.textContent = oculto ? 'Ocultar' : 'Mostrar';
+            btn.setAttribute('aria-label', oculto ? 'Ocultar senha' : 'Mostrar senha');
+        });
+        wrap.appendChild(btn);
+    });
+</script>
